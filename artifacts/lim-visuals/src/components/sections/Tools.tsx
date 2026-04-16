@@ -5,10 +5,10 @@ import { Video, Layers, Camera, Cpu } from "lucide-react";
 const tools = [
   { name: "After Effects", icon: Layers, level: 98, color: "#9999FF" },
   { name: "Premiere Pro", icon: Video, level: 95, color: "#9999FF" },
-  { name: "DaVinci Resolve", icon: SiDavinciresolve, level: 90, color: "#5CB8E6" },
+  { name: "DaVinci Resolve", icon: SiDavinciresolve, level: 50, color: "#5CB8E6" },
   { name: "Photoshop", icon: Camera, level: 92, color: "#31A8FF" },
-  { name: "Figma", icon: SiFigma, level: 85, color: "#F24E1E" },
-  { name: "Blender", icon: SiBlender, level: 75, color: "#F5792A" },
+  { name: "Figma", icon: SiFigma, level: 80, color: "#F24E1E" },
+  { name: "Blender", icon: SiBlender, level: 35, color: "#F5792A" },
   { name: "AI Tools", icon: Cpu, level: 93, color: "#A855F7" },
 ];
 
