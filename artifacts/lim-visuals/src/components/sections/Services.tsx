@@ -6,7 +6,7 @@ const services = [
     title: "Design & Branding",
     description: "Graphic design, logo creation, clothing & merch design, and full brand identity systems — from visual concept to cohesive, market-ready assets.",
     icon: Palette,
-    featured: true,
+    featured: false,
   },
   {
     title: "Motion Graphics",
