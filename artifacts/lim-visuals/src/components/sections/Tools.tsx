@@ -1,15 +1,51 @@
 import { motion } from "framer-motion";
 import { SiFigma, SiDavinciresolve, SiBlender } from "react-icons/si";
-import { Video, Layers, Camera, Cpu } from "lucide-react";
+import { Camera, Cpu } from "lucide-react";
+
+function AeIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="24" height="24" rx="4" fill="#1a0050" />
+      <text
+        x="12"
+        y="16.5"
+        textAnchor="middle"
+        fontSize="10"
+        fontWeight="bold"
+        fontFamily="Arial, sans-serif"
+        fill="#9999FF"
+        letterSpacing="-0.5"
+      >Ae</text>
+    </svg>
+  );
+}
+
+function PrIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="24" height="24" rx="4" fill="#1a0050" />
+      <text
+        x="12"
+        y="16.5"
+        textAnchor="middle"
+        fontSize="10"
+        fontWeight="bold"
+        fontFamily="Arial, sans-serif"
+        fill="#E8A0FF"
+        letterSpacing="-0.5"
+      >Pr</text>
+    </svg>
+  );
+}
 
 const tools = [
-  { name: "After Effects", icon: Layers, level: 98, color: "#9999FF" },
-  { name: "Premiere Pro", icon: Video, level: 95, color: "#9999FF" },
-  { name: "DaVinci Resolve", icon: SiDavinciresolve, level: 50, color: "#5CB8E6" },
-  { name: "Photoshop", icon: Camera, level: 92, color: "#31A8FF" },
-  { name: "Figma", icon: SiFigma, level: 80, color: "#F24E1E" },
-  { name: "Blender", icon: SiBlender, level: 35, color: "#F5792A" },
-  { name: "AI Tools", icon: Cpu, level: 93, color: "#A855F7" },
+  { name: "After Effects", icon: AeIcon, level: 98 },
+  { name: "Premiere Pro", icon: PrIcon, level: 95 },
+  { name: "DaVinci Resolve", icon: SiDavinciresolve, level: 50 },
+  { name: "Photoshop", icon: Camera, level: 92 },
+  { name: "Figma", icon: SiFigma, level: 80 },
+  { name: "Blender", icon: SiBlender, level: 35 },
+  { name: "AI Tools", icon: Cpu, level: 93 },
 ];
 
 export function Tools() {
