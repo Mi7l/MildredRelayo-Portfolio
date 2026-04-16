@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Box, MonitorPlay, Sparkles, Video, Palette, PenTool } from "lucide-react";
+import { Box, MonitorPlay, Sparkles, Video, Palette } from "lucide-react";
 
 const services = [
   {
@@ -18,12 +18,6 @@ const services = [
     title: "Video Editing",
     description: "Rhythmic, emotionally calibrated cuts — from social content to long-form productions that hold viewer attention.",
     icon: Video,
-    featured: false,
-  },
-  {
-    title: "Design & Brand Identity",
-    description: "Logo design, product visuals, clothing & merch graphics, packaging, and complete brand identity systems — every touchpoint crafted with purpose.",
-    icon: PenTool,
     featured: false,
   },
   {
