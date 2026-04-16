@@ -7,7 +7,7 @@ const socials = [
   {
     name: "LinkedIn",
     icon: Linkedin,
-    href: "https://www.linkedin.com/in/mildredrelayo/",
+    href: "https://www.linkedin.com/in/mildred-relayo/",
     label: "LinkedIn",
   },
   {
@@ -19,13 +19,13 @@ const socials = [
   {
     name: "Instagram",
     icon: SiInstagram,
-    href: "https://www.instagram.com/limvisuals",
+    href: "https://www.instagram.com/lim.visuals/",
     label: "Instagram",
   },
   {
     name: "TikTok",
     icon: SiTiktok,
-    href: "https://www.tiktok.com/@limvisuals",
+    href: "https://www.tiktok.com/@lim.visuals",
     label: "TikTok",
   },
 ];
