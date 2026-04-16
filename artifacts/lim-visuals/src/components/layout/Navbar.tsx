@@ -36,7 +36,7 @@ export function Navbar() {
       >
         <div className="flex items-center gap-2">
           <a href="#" className="font-serif font-bold text-xl tracking-tight text-white">
-            LIM<span className="text-primary">.</span>VISUALS
+            CREATIVE PORTFOLIO
           </a>
         </div>
 
