@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { SiFigma, SiDavinciresolve, SiBlender } from "react-icons/si";
 import { Camera, Cpu } from "lucide-react";
@@ -5,17 +6,8 @@ import { Camera, Cpu } from "lucide-react";
 function AeIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="24" height="24" rx="4" fill="#1a0050" />
-      <text
-        x="12"
-        y="16.5"
-        textAnchor="middle"
-        fontSize="10"
-        fontWeight="bold"
-        fontFamily="Arial, sans-serif"
-        fill="#9999FF"
-        letterSpacing="-0.5"
-      >Ae</text>
+      <rect width="24" height="24" rx="4" fill="currentColor" fillOpacity="0.15" />
+      <text x="12" y="16.5" textAnchor="middle" fontSize="10" fontWeight="bold" fontFamily="Arial, sans-serif" fill="currentColor" letterSpacing="-0.5">Ae</text>
     </svg>
   );
 }
@@ -23,32 +15,35 @@ function AeIcon({ className }: { className?: string }) {
 function PrIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect width="24" height="24" rx="4" fill="#1a0050" />
-      <text
-        x="12"
-        y="16.5"
-        textAnchor="middle"
-        fontSize="10"
-        fontWeight="bold"
-        fontFamily="Arial, sans-serif"
-        fill="#E8A0FF"
-        letterSpacing="-0.5"
-      >Pr</text>
+      <rect width="24" height="24" rx="4" fill="currentColor" fillOpacity="0.15" />
+      <text x="12" y="16.5" textAnchor="middle" fontSize="10" fontWeight="bold" fontFamily="Arial, sans-serif" fill="currentColor" letterSpacing="-0.5">Pr</text>
+    </svg>
+  );
+}
+
+function PsIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="24" height="24" rx="4" fill="currentColor" fillOpacity="0.15" />
+      <text x="12" y="16.5" textAnchor="middle" fontSize="10" fontWeight="bold" fontFamily="Arial, sans-serif" fill="currentColor" letterSpacing="-0.5">Ps</text>
     </svg>
   );
 }
 
 const tools = [
-  { name: "After Effects", icon: AeIcon, level: 98 },
-  { name: "Premiere Pro", icon: PrIcon, level: 95 },
-  { name: "DaVinci Resolve", icon: SiDavinciresolve, level: 50 },
-  { name: "Photoshop", icon: Camera, level: 92 },
-  { name: "Figma", icon: SiFigma, level: 80 },
-  { name: "Blender", icon: SiBlender, level: 35 },
-  { name: "AI Tools", icon: Cpu, level: 93 },
+  { name: "After Effects", icon: AeIcon },
+  { name: "Premiere Pro", icon: PrIcon },
+  { name: "Photoshop", icon: PsIcon },
+  { name: "DaVinci Resolve", icon: SiDavinciresolve },
+  { name: "Figma", icon: SiFigma },
+  { name: "Blender", icon: SiBlender },
+  { name: "AI Tools", icon: Cpu },
+  { name: "Photography", icon: Camera },
 ];
 
 export function Tools() {
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
   return (
     <section id="stack" className="py-32 px-6 relative z-10 bg-black/40 border-y border-white/5">
       <div className="max-w-4xl mx-auto">
@@ -65,32 +60,39 @@ export function Tools() {
           </p>
         </motion.div>
 
-        <div className="space-y-8">
+        <div className="flex flex-wrap justify-center gap-8 md:gap-12">
           {tools.map((tool, index) => (
             <motion.div
               key={tool.name}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="group"
+              transition={{ delay: index * 0.07, duration: 0.4, ease: "easeOut" }}
+              className="relative flex flex-col items-center gap-3"
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
             >
-              <div className="flex items-center justify-between mb-3">
-                <div className="flex items-center gap-3">
-                  <tool.icon className="w-6 h-6 text-white/40 group-hover:text-white transition-colors" />
-                  <span className="text-lg font-medium text-white">{tool.name}</span>
-                </div>
-                <span className="text-white/40 font-mono text-sm">{tool.level}%</span>
+              <div className={`w-14 h-14 flex items-center justify-center rounded-2xl transition-all duration-300 cursor-default
+                ${hoveredIndex === index
+                  ? "text-white bg-white/10 scale-110"
+                  : "text-white/30 bg-transparent scale-100"
+                }`}
+              >
+                <tool.icon className="w-8 h-8" />
               </div>
-              <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
-                <motion.div
-                  initial={{ width: 0 }}
-                  whileInView={{ width: `${tool.level}%` }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1.5, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                  className="h-full bg-gradient-to-r from-primary to-secondary rounded-full"
-                />
-              </div>
+
+              {/* Name tooltip on hover */}
+              <motion.span
+                initial={false}
+                animate={{
+                  opacity: hoveredIndex === index ? 1 : 0,
+                  y: hoveredIndex === index ? 0 : 4,
+                }}
+                transition={{ duration: 0.2 }}
+                className="absolute -bottom-7 whitespace-nowrap text-xs font-medium text-white/80 tracking-wide pointer-events-none"
+              >
+                {tool.name}
+              </motion.span>
             </motion.div>
           ))}
         </div>
