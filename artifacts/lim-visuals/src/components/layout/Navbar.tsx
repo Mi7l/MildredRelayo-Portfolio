@@ -62,7 +62,7 @@ export function Navbar() {
         <div className="hidden md:flex items-center gap-4">
           <a href="#contact">
             <Button className="rounded-full px-6 font-semibold bg-white text-black hover:bg-primary hover:text-white transition-all duration-300">
-              Book a Call
+              Set a Call
             </Button>
           </a>
         </div>
@@ -102,7 +102,7 @@ export function Navbar() {
             <div className="mt-2 pt-4 border-t border-white/10">
               <a href="#contact" onClick={() => setMenuOpen(false)}>
                 <Button className="w-full rounded-full font-semibold bg-white text-black hover:bg-primary hover:text-white transition-all duration-300 h-12">
-                  Book a Call
+                  Set a Call
                 </Button>
               </a>
             </div>

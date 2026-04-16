@@ -36,7 +36,7 @@ export function Hero() {
               transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="text-xl md:text-2xl text-white/60 max-w-lg font-light mb-12"
             >
-              Visuals capture attention. Direction creates purpose.
+              Visuals capture attention.<br />Direction creates purpose.
             </motion.p>
 
             <motion.div
