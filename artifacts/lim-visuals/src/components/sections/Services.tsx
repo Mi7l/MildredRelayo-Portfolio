@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Box, Layers, MonitorPlay, Sparkles, Video, Palette } from "lucide-react";
+import { Box, MonitorPlay, Sparkles, Video, Palette, PenTool } from "lucide-react";
 
 const services = [
   {
@@ -21,6 +21,12 @@ const services = [
     featured: false,
   },
   {
+    title: "Design & Brand Identity",
+    description: "Logo design, product visuals, clothing & merch graphics, packaging, and complete brand identity systems — every touchpoint crafted with purpose.",
+    icon: PenTool,
+    featured: false,
+  },
+  {
     title: "AI Creative Strategy",
     description: "Leveraging generative AI workflows to scale creative output, accelerate ideation, and future-proof your brand's visual direction.",
     icon: Sparkles,
@@ -30,12 +36,6 @@ const services = [
     title: "3D & VFX",
     description: "Immersive environments, product visualizations, and seamless visual effects that defy reality.",
     icon: Box,
-    featured: false,
-  },
-  {
-    title: "Brand Direction",
-    description: "Holistic visual identity governance, art direction, and creative leadership for campaigns and full brand overhauls.",
-    icon: Layers,
     featured: false,
   },
 ];
