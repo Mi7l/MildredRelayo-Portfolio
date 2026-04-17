@@ -2,10 +2,10 @@ import { Fragment } from "react";
 import { motion } from "framer-motion";
 
 const stats = [
-  { value: "5+", label: "Years Expertise" },
-  { value: "100+", label: "Projects Delivered" },
-  { value: "International", label: "Client Base" },
-  { value: "100K+", label: "Organic Engagements" },
+  { value: "5+", label: "Years Expertise", compact: false },
+  { value: "100+", label: "Projects Delivered", compact: false },
+  { value: "International", label: "Client Base", compact: true },
+  { value: "100K+", label: "Organic Engagements", compact: false },
 ];
 
 export function Stats() {
@@ -25,7 +25,7 @@ export function Stats() {
               transition={{ delay: index * 0.1, duration: 0.6 }}
               className="text-center py-4"
             >
-              <div className="text-2xl sm:text-3xl font-serif font-bold text-white mb-1 leading-tight break-words">
+              <div className={`font-serif font-bold text-white mb-1 leading-tight ${stat.compact ? "text-lg sm:text-xl" : "text-2xl sm:text-3xl"}`}>
                 {stat.value}
               </div>
               <div className="text-xs text-white/50 uppercase tracking-widest font-medium">
@@ -52,7 +52,7 @@ export function Stats() {
                 transition={{ delay: index * 0.1, duration: 0.6 }}
                 className="text-center flex-1 min-w-0 px-2"
               >
-                <div className="text-3xl lg:text-5xl font-serif font-bold text-white mb-2 leading-tight break-words hyphens-auto">
+                <div className={`font-serif font-bold text-white mb-2 leading-tight whitespace-nowrap ${stat.compact ? "text-xl lg:text-2xl" : "text-3xl lg:text-5xl"}`}>
                   {stat.value}
                 </div>
                 <div className="text-xs lg:text-sm text-white/50 uppercase tracking-widest font-medium">
