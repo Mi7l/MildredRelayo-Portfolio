@@ -11,10 +11,10 @@ const socials = [
     label: "LinkedIn",
   },
   {
-    name: "Behance",
-    icon: SiBehance,
-    href: "https://www.behance.net/limvisuals",
-    label: "Behance",
+    name: "TikTok",
+    icon: SiTiktok,
+    href: "https://www.tiktok.com/@lim.visuals",
+    label: "TikTok",
   },
   {
     name: "Instagram",
@@ -23,10 +23,10 @@ const socials = [
     label: "Instagram",
   },
   {
-    name: "TikTok",
-    icon: SiTiktok,
-    href: "https://www.tiktok.com/@lim.visuals",
-    label: "TikTok",
+    name: "Behance",
+    icon: SiBehance,
+    href: "https://www.behance.net/limvisuals",
+    label: "Behance",
   },
 ];
 
@@ -92,7 +92,7 @@ export function Contact() {
       </div>
 
       <div className="max-w-5xl mx-auto mt-16 flex flex-col md:flex-row justify-between items-center text-sm text-white/40 gap-2">
-        <p>© {new Date().getFullYear()} LIM.VISUALS. All rights reserved.</p>
+        <p>© 2026 lim.visuals. All rights reserved.</p>
         <p className="font-serif italic text-white/60">Designed for impact.</p>
       </div>
     </section>
