@@ -45,7 +45,7 @@ export function Services() {
           className="text-center mb-20"
         >
           <h2 className="text-sm font-medium tracking-widest uppercase text-primary mb-4">Capabilities</h2>
-          <h3 className="text-4xl md:text-5xl font-serif font-bold text-white">Full-Spectrum Direction</h3>
+          <h3 className="text-4xl md:text-5xl font-serif font-bold text-white">Creative + Technology Niche</h3>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -79,7 +79,7 @@ export function Services() {
             transition={{ delay: services.length * 0.08, duration: 0.5 }}
             className="p-8 rounded-3xl border border-dashed border-white/20 flex flex-col items-center justify-center text-center group hover:border-primary/50 transition-colors min-h-[160px]"
           >
-            <h4 className="text-lg font-medium text-white mb-2">Need something bespoke?</h4>
+            <h4 className="text-lg font-medium text-white mb-2">Have another vision in mind?</h4>
             <a href="#contact" className="text-primary hover:text-white transition-colors flex items-center gap-2">
               Let's discuss <Sparkles className="w-4 h-4" />
             </a>

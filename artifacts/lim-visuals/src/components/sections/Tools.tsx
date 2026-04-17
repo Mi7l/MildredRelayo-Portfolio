@@ -54,9 +54,9 @@ export function Tools() {
           className="text-center mb-16"
         >
           <h2 className="text-sm font-medium tracking-widest uppercase text-primary mb-4">The Stack</h2>
-          <h3 className="text-4xl md:text-5xl font-serif font-bold text-white">Precision Instruments.</h3>
+          <h3 className="text-4xl md:text-5xl font-serif font-bold text-white">Softwares/Tools</h3>
           <p className="text-white/60 mt-4 max-w-2xl mx-auto font-light">
-            Mastery over industry-standard software ensures ideas are executed without technical compromise.
+            Versatility and adaptive skillset.
           </p>
         </motion.div>
 

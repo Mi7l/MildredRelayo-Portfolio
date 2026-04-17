@@ -1,9 +1,14 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Play, FileText } from "lucide-react";
 import milPhoto from "@assets/Mil7_1776314559297.jpg";
 
+const RESUME_URL = "https://drive.google.com/file/d/1Kb_wIAVjSk5ih1T4nZ4fKPsPAvj7fxet/view?usp=sharing";
+
 export function Hero() {
+  const [resumeHovered, setResumeHovered] = useState(false);
+
   return (
     <section className="relative min-h-[100dvh] flex items-center pt-24 pb-12 px-6">
       <div className="max-w-6xl w-full mx-auto relative z-10">
@@ -78,18 +83,49 @@ export function Hero() {
                   className="w-full h-auto object-cover"
                   data-testid="img-hero-portrait"
                 />
-                {/* Subtle bottom gradient overlay */}
                 <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/60 to-transparent" />
               </div>
+
               {/* Floating label */}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8, duration: 0.6 }}
-                className="absolute -bottom-4 -left-4 px-5 py-3 rounded-2xl bg-black/60 backdrop-blur-xl border border-white/10 shadow-xl"
+                className="absolute -bottom-4 -left-4 px-5 py-3 rounded-2xl bg-black/60 backdrop-blur-xl border border-white/10 shadow-xl flex items-center gap-3"
               >
-                <p className="text-xs font-medium tracking-widest uppercase text-white/50">Creative Director</p>
-                <p className="text-base font-serif font-bold text-white">Mildred Relayo</p>
+                <div>
+                  <p className="text-xs font-medium tracking-widest uppercase text-white/50">Creative Director</p>
+                  <p className="text-base font-serif font-bold text-white">Mildred Relayo</p>
+                </div>
+
+                {/* Resume icon */}
+                <div className="relative ml-1">
+                  <a
+                    href={RESUME_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onMouseEnter={() => setResumeHovered(true)}
+                    onMouseLeave={() => setResumeHovered(false)}
+                    className="flex items-center justify-center w-8 h-8 rounded-lg bg-white/8 hover:bg-white/15 border border-white/10 hover:border-white/25 transition-all duration-200"
+                    aria-label="View Resume"
+                  >
+                    <FileText className="w-4 h-4 text-white/50 hover:text-white/90 transition-colors" />
+                  </a>
+
+                  <AnimatePresence>
+                    {resumeHovered && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 4, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: 4, scale: 0.95 }}
+                        transition={{ duration: 0.15 }}
+                        className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 whitespace-nowrap px-2.5 py-1 rounded-lg bg-black/80 backdrop-blur-md border border-white/10 text-xs text-white/80 pointer-events-none"
+                      >
+                        View Résumé
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               </motion.div>
             </div>
           </motion.div>

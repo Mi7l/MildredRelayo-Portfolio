@@ -47,8 +47,7 @@ export function Contact() {
               <span className="italic text-primary">impact.</span>
             </h2>
             <p className="text-base md:text-lg text-white/60 font-light mb-10 max-w-md">
-              Available for freelance opportunities and international collaborations.
-              Ready to elevate your visual identity.
+              Ready to execute your vision?
             </p>
 
             <a href="mailto:hello@limvisuals.com">

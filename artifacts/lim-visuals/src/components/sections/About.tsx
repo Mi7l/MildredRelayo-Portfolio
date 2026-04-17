@@ -14,18 +14,15 @@ export function About() {
           >
             <h2 className="text-sm font-medium tracking-widest uppercase text-primary mb-4">Identity</h2>
             <h3 className="text-4xl md:text-5xl font-serif font-bold text-white mb-8 leading-tight">
-              Bridging the gap between <span className="text-white/40">raw imagination</span> and <span className="text-white/40">precision execution.</span>
+              Solving a gap between <span className="text-white/40">vision</span> to <span className="text-white/40">execution.</span>
             </h3>
             
             <div className="space-y-6 text-lg text-white/70 font-light">
               <p>
-                I'm Mildred "Mil" Relayo — a multidisciplinary Creative Director and Editor. 
-                With over 5 years of experience spanning motion graphics, 3D, VFX, and AI integration, 
-                I build visual systems that demand attention.
+                With over 5 years of experience in creative niche, building a system is valuable in scaling.
               </p>
               <p>
-                My work isn't just about making things look good. It's about engineering emotional resonance 
-                and strategic impact for international clients who refuse to blend in.
+                My work isn't just about making visuals look good. It's about making your vision have a strategic impact for growth.
               </p>
             </div>
             
