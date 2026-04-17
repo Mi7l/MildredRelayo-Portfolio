@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const stats = [
   { value: "5+", label: "Years Expertise" },
   { value: "100+", label: "Projects Delivered" },
-  { value: "International", label: "Client Base" },
+  { value: "International", label: "Client Base", small: true },
   { value: "100K+", label: "Organic Engagements" }
 ];
 
@@ -30,7 +30,7 @@ export function Stats() {
                   ${isNotFirstDesktop && !isRightColMobile ? "md:border-l md:border-white/10" : ""}
                 `}
               >
-                <div className="text-4xl md:text-5xl font-serif font-bold text-white mb-2">
+                <div className={`font-serif font-bold text-white mb-2 leading-tight ${stat.small ? "text-2xl md:text-3xl" : "text-4xl md:text-5xl"}`}>
                   {stat.value}
                 </div>
                 <div className="text-sm text-white/50 uppercase tracking-widest font-medium">
