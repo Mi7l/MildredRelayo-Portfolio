@@ -20,10 +20,10 @@ export function Hero() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8 max-w-full"
             >
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-xs font-medium tracking-wide uppercase text-white/80">Available for international projects</span>
+              <span className="w-2 h-2 shrink-0 rounded-full bg-primary animate-pulse" />
+              <span className="text-xs font-medium tracking-wide uppercase text-white/80 truncate">Available for international projects</span>
             </motion.div>
 
             <motion.h1

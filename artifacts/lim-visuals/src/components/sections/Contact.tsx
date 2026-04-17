@@ -50,7 +50,7 @@ export function Contact() {
               Ready to execute your vision?
             </p>
 
-            <a href="mailto:hello@limvisuals.com">
+            <a href="mailto:lim.visually@gmail.com">
               <Button
                 size="lg"
                 className="h-14 md:h-16 px-6 md:px-8 rounded-full bg-white text-black hover:bg-primary hover:text-white transition-all duration-300 text-base md:text-lg font-semibold group w-full md:w-auto"

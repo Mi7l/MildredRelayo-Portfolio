@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, ExternalLink, Play, Pause } from "lucide-react";
-import aiThumb from "@/assets/images/work-ai.png";
 
 function VideoCard({
   src,
@@ -121,58 +120,6 @@ function ImageCard({
   );
 }
 
-function GlassCard({
-  title,
-  category,
-  description,
-  href,
-  colSpan,
-  delay,
-  accent,
-}: {
-  title: string;
-  category: string;
-  description: string;
-  href?: string;
-  colSpan: string;
-  delay: number;
-  accent: string;
-}) {
-  const Wrapper = href ? motion.a : motion.div;
-  const wrapperProps = href ? { href, target: "_blank", rel: "noopener noreferrer" } : {};
-
-  return (
-    <Wrapper
-      {...(wrapperProps as any)}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ delay, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      className={`group relative overflow-hidden rounded-3xl md:min-h-[300px] cursor-pointer ${colSpan}`}
-      style={{ background: `linear-gradient(135deg, ${accent}18 0%, #0a0a0a 100%)` }}
-    >
-      <div className="absolute inset-0 border border-white/8 rounded-3xl" />
-      <div
-        className="absolute -top-16 -right-16 w-48 h-48 rounded-full blur-3xl opacity-20 transition-opacity duration-500 group-hover:opacity-30"
-        style={{ background: accent }}
-      />
-      <div className="relative z-10 p-8 md:p-10 h-full flex flex-col justify-between">
-        <div>
-          <span className="inline-block px-3 py-1 rounded-full bg-white/8 text-xs font-medium text-white/70 mb-6">
-            {category}
-          </span>
-          <h4 className="text-2xl md:text-3xl font-serif font-bold text-white mb-4">{title}</h4>
-          <p className="text-white/50 font-light leading-relaxed">{description}</p>
-        </div>
-        {href && (
-          <div className="mt-8 flex items-center gap-2 text-sm font-medium text-white/40 group-hover:text-white/80 transition-colors">
-            View work <ExternalLink className="w-4 h-4" />
-          </div>
-        )}
-      </div>
-    </Wrapper>
-  );
-}
 
 export function Work() {
   return (
@@ -225,29 +172,28 @@ export function Work() {
           {/* Video Editing */}
           <VideoCard
             src="/content-creation.mp4"
-            title="The Editorial Cut"
+            title="Content Creation"
             category="Video Editing"
             colSpan="md:col-span-3"
             delay={0.2}
           />
 
           {/* Design & Branding */}
-          <GlassCard
+          <ImageCard
+            src="/design-branding-work.png"
             title="Brand Systems & Campaigns"
             category="Design & Branding"
-            description="Logo creation, visual identity systems, campaign layouts, and market-ready creative assets built from concept to cohesion."
-            href="https://www.figma.com/design/eG23Yvi4qoinGoKnSHexCT/CREATIVE-CAMPAIGNS-ADS?t=z9Bj288S2rMywRxi-0"
+            href="https://www.figma.com/design/eG23Yvi4qoinGoKnSHexCT/LIMVISUALS?node-id=0-1&p=f&t=Ejc7WzYOHFwTKDlS-0"
             colSpan="md:col-span-1"
             delay={0.3}
-            accent="#dc2626"
           />
 
           {/* AI Creative Strategy */}
-          <ImageCard
-            src={aiThumb}
-            title="AI-Driven Direction"
+          <VideoCard
+            src="/ai-workflow.mp4"
+            title="AI Integration / System / Workflow"
             category="AI Creative Strategy"
-            href="https://www.behance.net/limvisuals"
+            href="https://www.figma.com/design/eG23Yvi4qoinGoKnSHexCT/LIMVISUALS?node-id=662-2&t=Ejc7WzYOHFwTKDlS-1"
             colSpan="md:col-span-2"
             delay={0.4}
           />
