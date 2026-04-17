@@ -3,8 +3,8 @@ import { Box, MonitorPlay, Sparkles, Video, Palette } from "lucide-react";
 
 const services = [
   {
-    title: "Design & Branding",
-    description: "Graphic design, logo creation, clothing & merch design, and full brand identity systems — from visual concept to cohesive, market-ready assets.",
+    title: "UI/UX | Design & Branding",
+    description: "Graphic design, logo creation, clothing & merch design, product design, web design and full brand identity systems — from visual concept to cohesive, market-ready assets.",
     icon: Palette,
     featured: false,
   },
@@ -16,7 +16,7 @@ const services = [
   },
   {
     title: "Video Editing",
-    description: "Rhythmic, emotionally calibrated cuts — from social content to long-form productions that hold viewer attention.",
+    description: "Valuable content, high-retention, engaging, clean cuts, and visually appealing for social content to long-form productions that hold viewer attention.",
     icon: Video,
     featured: false,
   },
