@@ -30,7 +30,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="text-6xl md:text-7xl lg:text-8xl font-serif font-bold tracking-tighter text-white leading-[0.9] mb-6"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-serif font-bold tracking-tighter text-white leading-[0.9] mb-6"
             >
               MIL<span className="text-primary italic">.</span>RELAYO
             </motion.h1>
@@ -39,7 +39,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="text-xl md:text-2xl text-white/60 max-w-lg font-light mb-12"
+              className="text-lg sm:text-xl md:text-2xl text-white/60 max-w-lg font-light mb-12"
             >
               Visuals capture attention.<br />Direction creates purpose.
             </motion.p>
@@ -72,7 +72,7 @@ export function Hero() {
             transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="relative flex justify-center md:justify-end"
           >
-            <div className="relative w-72 md:w-80 lg:w-96">
+            <div className="relative w-64 sm:w-72 md:w-80 lg:w-96">
               {/* Glow behind image */}
               <div className="absolute inset-0 rounded-3xl bg-primary/20 blur-3xl scale-110" />
               {/* Glass frame */}
