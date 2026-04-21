@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, ExternalLink, Play, Pause } from "lucide-react";
+import { WorkCarousel } from "./WorkCarousel";
 
 function VideoCard({
   src,
@@ -148,6 +149,17 @@ export function Work() {
             View full archive <ArrowRight className="w-4 h-4" />
           </motion.a>
         </div>
+
+        {/* Featured carousel */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-16 md:mb-20"
+        >
+          <WorkCarousel />
+        </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
           {/* Motion Graphics — Beyond */}

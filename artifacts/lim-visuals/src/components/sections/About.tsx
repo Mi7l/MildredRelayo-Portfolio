@@ -46,13 +46,24 @@ export function About() {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="relative"
           >
-            <div className="aspect-[4/5] rounded-3xl overflow-hidden bg-white/5 border border-white/10 relative">
+            <div className="aspect-[4/5] rounded-3xl overflow-hidden bg-gradient-to-br from-primary/10 to-transparent border border-white/10 relative">
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent mix-blend-overlay z-10" />
-              <div className="absolute inset-0 flex items-center justify-center text-white/10 font-serif text-9xl font-bold italic select-none">
-                MIL
-              </div>
-              {/* Optional: Real photo goes here if user provides one, using a stylized placeholder for now */}
-              <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" />
+              
+              {/* Scuba Cat Video with Chroma Key Filter */}
+              <video
+                src="/scuba-cat-green.mp4"
+                loop
+                autoPlay
+                muted
+                playsInline
+                className="w-full h-full object-cover"
+                style={{
+                  filter: 'hue-rotate(120deg) saturate(2) brightness(1.1)',
+                  mixBlendMode: 'screen'
+                }}
+              />
+              
+              <div className="absolute inset-0 bg-black/10 backdrop-blur-xs" />
             </div>
             
             {/* Floating glass badge */}
