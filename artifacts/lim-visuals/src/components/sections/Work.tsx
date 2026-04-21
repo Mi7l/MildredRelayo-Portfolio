@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, ExternalLink, Play, Pause } from "lucide-react";
-import { WorkCarousel } from "./WorkCarousel";
 
 function VideoCard({
   src,
@@ -19,7 +18,7 @@ function VideoCard({
   delay: number;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [playing, setPlaying] = useState(true);
+  const [playing, setPlaying] = useState(false);
 
   const toggle = () => {
     if (!videoRef.current) return;
@@ -44,14 +43,13 @@ function VideoCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ delay, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      className={`group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white/5 aspect-[4/3] sm:aspect-[4/3] md:aspect-auto md:min-h-[300px] lg:min-h-[400px] cursor-pointer ${colSpan}`}
+      className={`group relative overflow-hidden rounded-3xl bg-white/5 aspect-[4/3] md:aspect-auto md:min-h-[400px] cursor-pointer ${colSpan}`}
     >
       <video
         ref={videoRef}
         src={src}
         loop
         muted
-        autoPlay
         playsInline
         className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
         onEnded={() => setPlaying(false)}
@@ -59,17 +57,17 @@ function VideoCard({
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
       <button
         onClick={(e) => { e.preventDefault(); toggle(); }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white/20 hover:scale-110 z-10"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white/20 hover:scale-110 z-10"
       >
-        {playing ? <Pause className="w-4 sm:w-5 h-4 sm:h-5 text-white" /> : <Play className="w-4 sm:w-5 h-4 sm:h-5 text-white ml-0.5" />}
+        {playing ? <Pause className="w-5 h-5 text-white" /> : <Play className="w-5 h-5 text-white ml-0.5" />}
       </button>
-      <div className="absolute bottom-0 left-0 w-full p-4 sm:p-6 md:p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-        <span className="inline-block px-2 sm:px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-xs font-medium text-white mb-2 sm:mb-3">
+      <div className="absolute bottom-0 left-0 w-full p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+        <span className="inline-block px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-xs font-medium text-white mb-3">
           {category}
         </span>
-        <div className="flex items-end justify-between gap-2">
-          <h4 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif font-bold text-white">{title}</h4>
-          {href && <ExternalLink className="w-4 sm:w-5 h-4 sm:h-5 text-white/60 group-hover:text-white transition-colors flex-shrink-0" />}
+        <div className="flex items-end justify-between">
+          <h4 className="text-2xl md:text-3xl font-serif font-bold text-white">{title}</h4>
+          {href && <ExternalLink className="w-5 h-5 text-white/60 group-hover:text-white transition-colors mb-1" />}
         </div>
       </div>
     </Wrapper>
@@ -101,7 +99,7 @@ function ImageCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ delay, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-      className={`group relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white/5 aspect-[4/3] sm:aspect-[4/3] md:aspect-auto md:min-h-[300px] lg:min-h-[360px] cursor-pointer ${colSpan}`}
+      className={`group relative overflow-hidden rounded-3xl bg-white/5 aspect-[4/3] md:aspect-auto md:min-h-[360px] cursor-pointer ${colSpan}`}
     >
       <img
         src={src}
@@ -109,13 +107,13 @@ function ImageCard({
         className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
-      <div className="absolute bottom-0 left-0 w-full p-4 sm:p-6 md:p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-        <span className="inline-block px-2 sm:px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-xs font-medium text-white mb-2 sm:mb-3">
+      <div className="absolute bottom-0 left-0 w-full p-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+        <span className="inline-block px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-xs font-medium text-white mb-3">
           {category}
         </span>
-        <div className="flex items-end justify-between gap-2">
-          <h4 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-serif font-bold text-white">{title}</h4>
-          {href && <ExternalLink className="w-4 sm:w-5 h-4 sm:h-5 text-white/60 group-hover:text-white transition-colors flex-shrink-0" />}
+        <div className="flex items-end justify-between">
+          <h4 className="text-2xl md:text-3xl font-serif font-bold text-white">{title}</h4>
+          {href && <ExternalLink className="w-5 h-5 text-white/60 group-hover:text-white transition-colors mb-1" />}
         </div>
       </div>
     </Wrapper>
@@ -125,7 +123,7 @@ function ImageCard({
 
 export function Work() {
   return (
-    <section id="work" className="py-20 sm:py-24 md:py-32 px-4 sm:px-6 relative z-10">
+    <section id="work" className="py-32 px-6 relative z-10">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <motion.div
@@ -150,18 +148,7 @@ export function Work() {
           </motion.a>
         </div>
 
-        {/* Featured carousel */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="mb-16 md:mb-20"
-        >
-          <WorkCarousel />
-        </motion.div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Motion Graphics — Beyond */}
           <VideoCard
             src="/beyond-motion.mp4"
