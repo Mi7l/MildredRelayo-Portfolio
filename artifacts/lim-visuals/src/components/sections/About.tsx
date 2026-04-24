@@ -1,7 +1,51 @@
-import { motion } from "framer-motion";
-import { FolderPortfolio } from "./FolderPortfolio";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Folder } from "lucide-react";
+
+interface FolderItem {
+  id: string;
+  title: string;
+  images: string[];
+}
+
+const folders: FolderItem[] = [
+  {
+    id: "uiux",
+    title: "UI/UX Design",
+    images: [
+      "/portfolio-images/uiux-1.jpg",
+      "/portfolio-images/uiux-2.jpg",
+      "/portfolio-images/uiux-3.jpg",
+    ],
+  },
+  {
+    id: "ai-workflow",
+    title: "AI Workflow/Systems",
+    images: [
+      "/portfolio-images/ai-workflow-1.jpg",
+      "/portfolio-images/ai-workflow-2.jpg",
+      "/portfolio-images/ai-workflow-3.jpg",
+    ],
+  },
+  {
+    id: "automations",
+    title: "Automations",
+    images: [
+      "/portfolio-images/automations-1.jpg",
+      "/portfolio-images/automations-2.jpg",
+      "/portfolio-images/automations-3.jpg",
+    ],
+  },
+];
 
 export function About() {
+  const [hoveredFolderId, setHoveredFolderId] = useState<string | null>(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState<{ [key: string]: number }>({
+    uiux: 0,
+    "ai-workflow": 0,
+    automations: 0,
+  });
+
   return (
     <section id="about" className="py-32 px-6 relative z-10">
       <div className="max-w-6xl mx-auto">
@@ -40,53 +84,88 @@ export function About() {
             </div>
           </motion.div>
           
+          {/* Small Folder Cards Grid */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="relative"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-4"
           >
-            <div className="aspect-[4/5] rounded-3xl overflow-hidden bg-gradient-to-br from-primary/10 to-transparent border border-white/10 relative">
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent mix-blend-overlay z-10" />
-              
-              {/* Scuba Cat Video with Chroma Key Filter */}
-              <video
-                src="/scuba-cat-green.mp4"
-                loop
-                autoPlay
-                muted
-                playsInline
-                className="w-full h-full object-cover"
-                style={{
-                  filter: 'hue-rotate(120deg) saturate(2) brightness(1.1)',
-                  mixBlendMode: 'screen'
-                }}
-              />
-              
-              <div className="absolute inset-0 bg-black/10 backdrop-blur-xs" />
-            </div>
-            
-            {/* Floating glass badge */}
-            <div className="absolute -bottom-6 -left-6 bg-black/60 backdrop-blur-xl border border-white/10 p-6 rounded-2xl shadow-2xl">
-              <p className="text-sm font-medium text-white mb-1">Current Focus</p>
-              <p className="text-primary font-serif italic text-lg">AI Creative Strategy</p>
-            </div>
-          </motion.div>
-          
-        </div>
+            {folders.map((folder, index) => (
+              <motion.div
+                key={folder.id}
+                onMouseEnter={() => setHoveredFolderId(folder.id)}
+                onMouseLeave={() => setHoveredFolderId(null)}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.15, duration: 0.6 }}
+                className="relative group"
+              >
+                {/* Folder Card */}
+                <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-4 transition-all duration-300 hover:bg-white/10 hover:border-white/20">
+                  <div className="flex items-center gap-3">
+                    <Folder className="w-5 h-5 text-primary" />
+                    <span className="text-sm font-medium text-white">{folder.title}</span>
+                  </div>
+                </div>
 
-        {/* Folder Portfolio Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-24 pt-24 border-t border-white/10"
-        >
-          <h3 className="text-3xl md:text-4xl font-serif font-bold text-white mb-12">Current Focuses</h3>
-          <FolderPortfolio />
-        </motion.div>
+                {/* Hover Preview */}
+                <AnimatePresence>
+                  {hoveredFolderId === folder.id && (
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.95, y: -10 }}
+                      animate={{ opacity: 1, scale: 1, y: 0 }}
+                      exit={{ opacity: 0, scale: 0.95, y: -10 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute top-full left-0 right-0 mt-2 z-50 bg-black/95 backdrop-blur-xl border border-white/20 rounded-2xl p-3 shadow-2xl"
+                    >
+                      {/* Main Image */}
+                      <div className="relative overflow-hidden rounded-lg mb-2 aspect-[4/3] bg-black/50">
+                        <motion.img
+                          key={selectedImageIndex[folder.id]}
+                          src={folder.images[selectedImageIndex[folder.id]]}
+                          alt={`${folder.title} preview`}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ duration: 0.2 }}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+
+                      {/* Thumbnail Navigation */}
+                      <div className="flex gap-2 justify-center">
+                        {folder.images.map((_, imgIndex) => (
+                          <motion.button
+                            key={imgIndex}
+                            onMouseEnter={() =>
+                              setSelectedImageIndex((prev) => ({
+                                ...prev,
+                                [folder.id]: imgIndex,
+                              }))
+                            }
+                            className={`w-8 h-8 rounded border transition-all ${
+                              selectedImageIndex[folder.id] === imgIndex
+                                ? "border-primary bg-primary/20"
+                                : "border-white/20 bg-white/5 hover:border-white/40"
+                            }`}
+                          >
+                            <img
+                              src={folder.images[imgIndex]}
+                              alt={`Thumb ${imgIndex + 1}`}
+                              className="w-full h-full object-cover rounded"
+                            />
+                          </motion.button>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
       </div>
     </section>
   );
