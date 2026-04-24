@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { FolderPortfolio } from "./FolderPortfolio";
 
 export function About() {
   return (
@@ -74,6 +75,18 @@ export function About() {
           </motion.div>
           
         </div>
+
+        {/* Folder Portfolio Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-24 pt-24 border-t border-white/10"
+        >
+          <h3 className="text-3xl md:text-4xl font-serif font-bold text-white mb-12">Current Focuses</h3>
+          <FolderPortfolio />
+        </motion.div>
       </div>
     </section>
   );
