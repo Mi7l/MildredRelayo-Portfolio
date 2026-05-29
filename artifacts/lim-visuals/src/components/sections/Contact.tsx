@@ -46,47 +46,45 @@ export function Contact() {
               Let's create <br />
               <span className="italic text-primary">impact.</span>
             </h2>
-            <p className="text-base md:text-lg text-white/60 font-light mb-10 max-w-md">
-              Ready to execute your vision? Get in touch today.
-            </p>
 
-            {/* Main CTA Button with Icon Actions */}
-            <div className="flex items-center gap-4">
-              <Button
-                size="lg"
-                className="h-14 md:h-16 px-6 md:px-8 rounded-full bg-white text-black hover:bg-white/90 transition-all duration-300 text-base md:text-lg font-semibold group shadow-lg hover:shadow-white/30 hover:shadow-2xl"
-                data-testid="button-lets-discuss"
-                disabled
-              >
-                Let's discuss
-                <ArrowUpRight className="ml-2 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </Button>
+            {/* Main CTA Button with Icons Inside */}
+            <div className="relative group mt-10">
+              {/* Glow Effect Background */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary via-primary to-primary/50 rounded-full blur-2xl opacity-0 group-hover:opacity-75 transition-all duration-500" />
+              
+              {/* Button Container */}
+              <div className="relative bg-white rounded-full shadow-2xl hover:shadow-primary/50 hover:shadow-3xl transition-all duration-500 group-hover:bg-white/95">
+                <div className="flex items-center justify-between gap-3 px-6 md:px-8 py-3 md:py-4">
+                  {/* Main Text */}
+                  <span className="text-base md:text-lg font-semibold text-black">Let's discuss</span>
+                  
+                  {/* Icon Buttons */}
+                  <div className="flex gap-2">
+                    {/* Calendar Button */}
+                    <a href="https://calendly.com/mildredrelayo-cs/30min" target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}>
+                      <motion.button
+                        whileHover={{ scale: 1.15 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="w-10 h-10 md:w-11 md:h-11 rounded-full bg-primary text-white hover:bg-primary/90 transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-primary/60"
+                        title="Schedule a call"
+                      >
+                        <Phone className="w-5 h-5 md:w-6 md:h-6" />
+                      </motion.button>
+                    </a>
 
-              {/* Small Icon Buttons */}
-              <div className="flex gap-3">
-                {/* Calendar Button */}
-                <a href="https://calendly.com/mildredrelayo-cs/30min" target="_blank" rel="noopener noreferrer">
-                  <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="w-12 md:w-14 h-12 md:h-14 rounded-full bg-primary text-white hover:bg-primary/90 transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-primary/50 hover:shadow-2xl group"
-                    title="Schedule a call"
-                  >
-                    <Phone className="w-5 h-5 md:w-6 md:h-6 group-hover:scale-110 transition-transform" />
-                  </motion.button>
-                </a>
-
-                {/* Email Button */}
-                <a href="mailto:mildredrelayo.cs@gmail.com">
-                  <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="w-12 md:w-14 h-12 md:h-14 rounded-full bg-white text-black hover:bg-white/90 transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-white/30 hover:shadow-2xl group"
-                    title="Send an email"
-                  >
-                    <Mail className="w-5 h-5 md:w-6 md:h-6 group-hover:scale-110 transition-transform" />
-                  </motion.button>
-                </a>
+                    {/* Email Button */}
+                    <a href="mailto:mildredrelayo.cs@gmail.com" onClick={(e) => e.stopPropagation()}>
+                      <motion.button
+                        whileHover={{ scale: 1.15 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="w-10 h-10 md:w-11 md:h-11 rounded-full bg-black text-white hover:bg-black/90 transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-black/60"
+                        title="Send an email"
+                      >
+                        <Mail className="w-5 h-5 md:w-6 md:h-6" />
+                      </motion.button>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>
