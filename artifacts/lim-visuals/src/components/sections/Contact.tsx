@@ -50,33 +50,44 @@ export function Contact() {
               Ready to execute your vision? Get in touch today.
             </p>
 
-            {/* Two CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
-              {/* Schedule Call Button */}
-              <a href="https://calendly.com/mildredrelayo-cs/30min" target="_blank" rel="noopener noreferrer">
-                <Button
-                  size="lg"
-                  className="h-14 md:h-16 px-6 md:px-8 rounded-full bg-primary text-white hover:bg-primary/90 transition-all duration-300 text-base md:text-lg font-semibold group w-full sm:w-auto shadow-lg hover:shadow-primary/50 hover:shadow-2xl"
-                  data-testid="button-schedule-call"
-                >
-                  <Phone className="mr-3 w-5 h-5" />
-                  Schedule Call
-                  <ArrowUpRight className="ml-2 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                </Button>
-              </a>
+            {/* Main CTA Button with Icon Actions */}
+            <div className="flex items-center gap-4">
+              <Button
+                size="lg"
+                className="h-14 md:h-16 px-6 md:px-8 rounded-full bg-white text-black hover:bg-white/90 transition-all duration-300 text-base md:text-lg font-semibold group shadow-lg hover:shadow-white/30 hover:shadow-2xl"
+                data-testid="button-lets-discuss"
+                disabled
+              >
+                Let's discuss
+                <ArrowUpRight className="ml-2 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </Button>
 
-              {/* Email Button */}
-              <a href="mailto:mildredrelayo.cs@gmail.com">
-                <Button
-                  size="lg"
-                  className="h-14 md:h-16 px-6 md:px-8 rounded-full bg-white text-black hover:bg-white/90 transition-all duration-300 text-base md:text-lg font-semibold group w-full sm:w-auto shadow-lg hover:shadow-white/30 hover:shadow-2xl"
-                  data-testid="button-email"
-                >
-                  <Mail className="mr-3 w-5 h-5" />
-                  Send Email
-                  <ArrowUpRight className="ml-2 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                </Button>
-              </a>
+              {/* Small Icon Buttons */}
+              <div className="flex gap-3">
+                {/* Calendar Button */}
+                <a href="https://calendly.com/mildredrelayo-cs/30min" target="_blank" rel="noopener noreferrer">
+                  <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="w-12 md:w-14 h-12 md:h-14 rounded-full bg-primary text-white hover:bg-primary/90 transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-primary/50 hover:shadow-2xl group"
+                    title="Schedule a call"
+                  >
+                    <Phone className="w-5 h-5 md:w-6 md:h-6 group-hover:scale-110 transition-transform" />
+                  </motion.button>
+                </a>
+
+                {/* Email Button */}
+                <a href="mailto:mildredrelayo.cs@gmail.com">
+                  <motion.button
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="w-12 md:w-14 h-12 md:h-14 rounded-full bg-white text-black hover:bg-white/90 transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-white/30 hover:shadow-2xl group"
+                    title="Send an email"
+                  >
+                    <Mail className="w-5 h-5 md:w-6 md:h-6 group-hover:scale-110 transition-transform" />
+                  </motion.button>
+                </a>
+              </div>
             </div>
           </motion.div>
 
