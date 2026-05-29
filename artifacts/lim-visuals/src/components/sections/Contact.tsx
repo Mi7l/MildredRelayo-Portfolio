@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowUpRight, Mail, Linkedin } from "lucide-react";
+import { ArrowUpRight, Mail, Linkedin, Phone } from "lucide-react";
 import { SiBehance, SiInstagram, SiTiktok } from "react-icons/si";
 
 const socials = [
@@ -47,20 +47,37 @@ export function Contact() {
               <span className="italic text-primary">impact.</span>
             </h2>
             <p className="text-base md:text-lg text-white/60 font-light mb-10 max-w-md">
-              Ready to execute your vision?
+              Ready to execute your vision? Get in touch today.
             </p>
 
-            <a href="mailto:lim.visually@gmail.com">
-              <Button
-                size="lg"
-                className="h-14 md:h-16 px-6 md:px-8 rounded-full bg-white text-black hover:bg-primary hover:text-white transition-all duration-300 text-base md:text-lg font-semibold group w-full md:w-auto"
-                data-testid="button-lets-discuss"
-              >
-                <Mail className="mr-3 w-5 h-5" />
-                Let's discuss
-                <ArrowUpRight className="ml-2 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </Button>
-            </a>
+            {/* Two CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 md:gap-6">
+              {/* Schedule Call Button */}
+              <a href="https://calendly.com/mildredrelayo-cs/30min" target="_blank" rel="noopener noreferrer">
+                <Button
+                  size="lg"
+                  className="h-14 md:h-16 px-6 md:px-8 rounded-full bg-primary text-white hover:bg-primary/90 transition-all duration-300 text-base md:text-lg font-semibold group w-full sm:w-auto shadow-lg hover:shadow-primary/50 hover:shadow-2xl"
+                  data-testid="button-schedule-call"
+                >
+                  <Phone className="mr-3 w-5 h-5" />
+                  Schedule Call
+                  <ArrowUpRight className="ml-2 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                </Button>
+              </a>
+
+              {/* Email Button */}
+              <a href="mailto:mildredrelayo.cs@gmail.com">
+                <Button
+                  size="lg"
+                  className="h-14 md:h-16 px-6 md:px-8 rounded-full bg-white text-black hover:bg-white/90 transition-all duration-300 text-base md:text-lg font-semibold group w-full sm:w-auto shadow-lg hover:shadow-white/30 hover:shadow-2xl"
+                  data-testid="button-email"
+                >
+                  <Mail className="mr-3 w-5 h-5" />
+                  Send Email
+                  <ArrowUpRight className="ml-2 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                </Button>
+              </a>
+            </div>
           </motion.div>
 
           <motion.div

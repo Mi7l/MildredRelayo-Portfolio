@@ -111,19 +111,19 @@ export function About() {
                         transition={{ duration: 0.2 }}
                         className="absolute top-full left-0 right-0 mt-2 z-50 bg-black/95 backdrop-blur-xl border border-white/20 rounded-2xl p-4 shadow-2xl"
                       >
-                        {/* Main Image with Zoom */}
-                        <div className="relative overflow-hidden rounded-lg aspect-[4/3] bg-black/50">
-                          <motion.img
-                            key={selectedImageIndex[folder.id]}
-                            src={folder.images[selectedImageIndex[folder.id]]}
-                            alt={`${folder.title} preview`}
-                            initial={{ opacity: 0, scale: 1 }}
-                            animate={{ opacity: 1, scale: 1.05 }}
-                            whileHover={{ scale: 1.15 }}
-                            transition={{ duration: 0.3 }}
-                            className="w-full h-full object-cover cursor-zoom-in"
-                          />
-                        </div>
+                      {/* Main Image with Zoom */}
+                      <div className="relative overflow-hidden rounded-lg aspect-[4/3] bg-black/50 group/image">
+                        <motion.img
+                          key={selectedImageIndex[folder.id]}
+                          src={folder.images[selectedImageIndex[folder.id]]}
+                          alt={`${folder.title} preview`}
+                          initial={{ opacity: 0, scale: 1 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          whileHover={{ scale: 1.4 }}
+                          transition={{ duration: 0.4, ease: "easeOut" }}
+                          className="w-full h-full object-cover cursor-zoom-in"
+                        />
+                      </div>
                       </motion.div>
                     )}
                   </AnimatePresence>
