@@ -71,7 +71,7 @@ export function About() {
               </div>
               <div className="w-[1px] h-12 bg-white/10" />
               <div className="flex flex-col">
-                <span className="text-4xl font-serif font-bold text-white">100K+</span>
+                <span className="text-4xl font-serif font-bold text-white">1M+</span>
                 <span className="text-sm text-white/50 uppercase tracking-wider">Organic Engagements</span>
               </div>
             </div>
