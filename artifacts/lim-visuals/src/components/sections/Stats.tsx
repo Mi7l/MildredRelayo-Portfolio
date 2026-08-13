@@ -5,7 +5,7 @@ const stats = [
   { value: "5+", label: "Years Expertise", compact: false },
   { value: "100+", label: "Projects Delivered", compact: false },
   { value: "International", label: "Client Base", compact: true },
-  { value: "100K+", label: "Organic Engagements", compact: false },
+  { value: "1M+", label: "Organic Engagements", compact: false },
 ];
 
 export function Stats() {
