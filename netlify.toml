@@ -1,0 +1,25 @@
+[build]
+base = "/"
+command = "PORT=3000 BASE_PATH=/ pnpm run build"
+publish = "artifacts/lim-visuals/dist/public"
+
+[build.environment]
+NODE_VERSION = "24"
+
+[context.production]
+command = "PORT=3000 BASE_PATH=/ pnpm run build"
+publish = "artifacts/lim-visuals/dist/public"
+
+[context.deploy-preview]
+command = "PORT=3000 BASE_PATH=/ pnpm run build"
+publish = "artifacts/lim-visuals/dist/public"
+
+[context.branch-deploy]
+command = "PORT=3000 BASE_PATH=/ pnpm run build"
+publish = "artifacts/lim-visuals/dist/public"
+
+# Redirect all requests to index.html for React router
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200

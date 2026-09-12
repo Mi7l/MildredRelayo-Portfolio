@@ -1,0 +1,26 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "_Qgi13ildgCTWwNM6mZZ4"
+uri = "file://artifacts/lim-visuals/src/assets/images/work-motion.png"
+type = "image"
+title = "Motion Graphics Portfolio Thumbnail"
+
+[[generated]]
+id = "H8szCqkby33sUl03J39WB"
+uri = "file://artifacts/lim-visuals/src/assets/images/work-3d.png"
+type = "image"
+title = "3D VFX Portfolio Thumbnail"
+
+[[generated]]
+id = "mx3ydQddQXwdmxZlomeRd"
+uri = "file://artifacts/lim-visuals/src/assets/images/work-edit.png"
+type = "image"
+title = "Video Editing Portfolio Thumbnail"
+
+[[generated]]
+id = "-i2nNexeMeKKNjdVFzxi4"
+uri = "file://artifacts/lim-visuals/src/assets/images/work-ai.png"
+type = "image"
+title = "AI Strategy Portfolio Thumbnail"
